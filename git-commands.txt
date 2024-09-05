@@ -22,7 +22,6 @@ git show <SHA>                    Show diff vs. the SHA                         
 After you have generated a directory (mkdir) and initialized it in git repository (git init) and create file (touch <filename>.txt) then completed the staging process (git add , git commit) if you have open your git first time and have never created ssh keys then please create it or if you want to collab with some other then also you have to create ssh key
 
 Methods to successfully create ssh key and add it too ssh agent:
-
 source:- https://betterprogramming.pub/how-to-set-up-multiple-ssh-keys-ae6688f76570
 in last step at (ssh-add -K ~/.ssh/<ssh_keyname>) if this doesn't work please try ssh-add
 
@@ -40,6 +39,6 @@ Now after setting ssh key and linking it with ssh agent make an empty repo at gi
 
 After completing above commands their's only  2 commands to run to add your terminal directory to github site
 
-git remote add origin <(repo's url | repo's ssh key)>
-git push -u origin main    // for first time creating
+git remote add origin <(repo's url | repo's ssh key)>    // for first time when creating a new Repo
+git push -u origin main                                  // for first time when creating a new Repo
 git push  // for updating existing repo
