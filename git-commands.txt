@@ -1,0 +1,45 @@
+git config --global user.name "Shounak Mandal"
+git config --global user.email shounak.mandal16@gmail.com   // for setting some global variable and is required only once
+
+Command                              Description                                               Example
+
+git help                        Get help on a command                                       $ git help push
+git config                          Configure Git                                           $ git config --global (user.name "yourname"| user.mail "youremail")
+source <file>                   Activate Bash changes                                       $ source ~/.bash_profile
+**mkdir -p**              Make intermediate directories as necessary                        $ mkdir -p repos/website
+git init                Initialized empty Git repository in your current directory          $ git init
+git status                 Show the status of the repository                                $ git status
+touch <name>                      Create empty file                                         $ touch (README.md|a.txt|index.html)	
+git add -A              Add all files or directories to staging area                        $ git add (-A|.)
+git add <name>           Add given file or directory to staging area                        $ git add foo
+git commit -m                Commit staged changes with a message                           $ git commit -m "Add thing"
+git commit -am              Stage and commit changes with a message                         $ git commit -am "Add thing"
+git diff                  Show diffs between commits, branches, etc.                        $ git diff
+git commit --amend                Amend the last commit                                     $ git commit --amend
+git show <SHA>                    Show diff vs. the SHA                                     $ git show fb738e…
+
+
+After you have generated a directory (mkdir) and initialized it in git repository (git init) and create file (touch <filename>.txt) then completed the staging process (git add , git commit) if you have open your git first time and have never created ssh keys then please create it or if you want to collab with some other then also you have to create ssh key
+
+Methods to successfully create ssh key and add it too ssh agent:
+
+source:- https://betterprogramming.pub/how-to-set-up-multiple-ssh-keys-ae6688f76570
+in last step at (ssh-add -K ~/.ssh/<ssh_keyname>) if this doesn't work please try ssh-add
+
+and add this in ~/.ssh/config
+
+Host *
+  IgnoreUnknown UseKeychain
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/<ssh_keyname>
+
+Also don't forget to add the ssh hash key to github site which will be provided through above steps.
+
+Now after setting ssh key and linking it with ssh agent make an empty repo at git hub site and copy the repo's url or ssh key it will be useful for further process.
+
+After completing above commands their's only  2 commands to run to add your terminal directory to github site
+
+git remote add origin <(repo's url | repo's ssh key)>
+git push -u origin main    // for first time creating
+git push  // for updating existing repo
